@@ -9,6 +9,6 @@ public interface IBlogDAO {
 
 	BlogDTO select(int id); // id 기반으로 조회
 
-	int delete(int boardId);
+	int delete(int boardId); // boardId 기반으로 삭제
 
 }
