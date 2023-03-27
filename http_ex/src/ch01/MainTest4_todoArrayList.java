@@ -23,22 +23,23 @@ public class MainTest4_todoArrayList {
 //			int statusCode = conn.getResponseCode();
 
 			BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-			
+
 			String line = null;
 			StringBuffer sb = new StringBuffer();
-			while((line = reader.readLine())!= null) {
+			while ((line = reader.readLine()) != null) {
 				sb.append(line);
 			}
-			
+
 			String result = sb.toString();
 			Gson gson = new Gson();
 
 			// 걍 외워
 			// 1. ArrayList<Object> 를 파싱하기 위해서 데이터 타입 선언
-			Type listType = new TypeToken<List<Todo>>() {}.getType();
+			Type listType = new TypeToken<List<Todo>>() {
+			}.getType();
 
 			ArrayList<Todo> todoList = gson.fromJson(result, listType);
-			
+
 			for (Todo todo : todoList) {
 				System.out.println(todo);
 			}

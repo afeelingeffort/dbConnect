@@ -71,6 +71,8 @@ public class MainTest5_user {
 				String result = sb.toString();
 				Gson gson = new Gson();
 
+				
+				// reflection 기법 : 실행됐을 때 생성
 				Type listType = new TypeToken<List<User>>() {
 				}.getType();
 				

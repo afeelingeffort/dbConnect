@@ -24,6 +24,9 @@ public class MainTest1 {
 		// URL 클래스
 		// HttpURLConnection 클래스가 필요
 		try {
+			
+			// http로 통신을 하기 위해 URL 클래스를 이용하여 가져올 가상데이터의 주소를 넣어준다.
+			// 그 다음 HttpURLConnection을 이용하여 url과 연결해준다.
 			URL url = new URL("https://jsonplaceholder.typicode.com/todos/1");
 
 			// ctrl + T 눌러 상속관계 확인 --> 다운캐스팅 해줘야 함
@@ -34,6 +37,7 @@ public class MainTest1 {
 			int statusCode = conn.getResponseCode();
 			System.out.println("statusCode : " + statusCode);
 
+			// 내용을 읽어오기 위한 입력 스트림
 			BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 
 			StringBuffer sb = new StringBuffer();
@@ -49,17 +53,17 @@ public class MainTest1 {
 			String resultStr = sb.toString();
 			System.out.println(resultStr);
 
-			//Gson 라이브러리 가지고 오고 설정하는 방법
-			//gson 대표적인 사용법 및 개념
+			// Gson 라이브러리 가지고 오고 설정하는 방법
+			// gson 대표적인 사용법 및 개념
 			Gson gson = new Gson();
 //			Todo todo = new Todo();
-			
+
 			JsonObject jsonObject = new JsonObject();
 			jsonObject.addProperty("userId", 1);
 			jsonObject.addProperty("id", 1);
-			
+
 			String jsonStr = gson.toJson(jsonObject);
-			
+
 			System.out.println(jsonStr);
 
 		} catch (Exception e) {
